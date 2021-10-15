@@ -1,6 +1,13 @@
+// Fabian Hüni 21-122-270
+// Eilin Orgland 20-218-566
+
 package ch.unibe.serie03.task04;
 
+/**
+ * Contains different tests for the book class
+ */
 public class BookShelf {
+
     public static void main(String[] args) {
         Book book1 = new Book(123, "Testbuch", "Max Muster", "10.08.2021");
 

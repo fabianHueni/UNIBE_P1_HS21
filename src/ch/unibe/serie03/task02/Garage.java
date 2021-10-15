@@ -1,5 +1,11 @@
+// Fabian Hüni 21-122-270
+// Eilin Orgland 20-218-566
+
 package ch.unibe.serie03.task02;
 
+/**
+ * Contains different tests with car objects
+ */
 public class Garage {
 
     public static void main(String[] args) {

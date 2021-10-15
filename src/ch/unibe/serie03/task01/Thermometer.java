@@ -1,3 +1,6 @@
+// Fabian Hüni 21-122-270
+// Eilin Orgland 20-218-566
+
 package ch.unibe.serie03.task01;
 
 public class Thermometer {

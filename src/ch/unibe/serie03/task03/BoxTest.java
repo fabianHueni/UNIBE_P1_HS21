@@ -1,5 +1,11 @@
+// Fabian Hüni 21-122-270
+// Eilin Orgland 20-218-566
+
 package ch.unibe.serie03.task03;
 
+/**
+ * Contains different tests for the box and cargo classes
+ */
 public class BoxTest {
 
     public static void main(String[] args) {

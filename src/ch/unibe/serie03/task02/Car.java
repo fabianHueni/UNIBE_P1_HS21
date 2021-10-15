@@ -1,13 +1,18 @@
+// Fabian Hüni 21-122-270
+// Eilin Orgland 20-218-566
+
 package ch.unibe.serie03.task02;
 
 import java.time.Year;
 
+/**
+ * Class represents a car object with brand, model and vintage.
+ */
 public class Car {
 
     private String brand;
     private String model;
     private int vintage;
-
 
     public Car(String brand, String model, int vintage) {
         this.brand = brand;

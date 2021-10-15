@@ -1,5 +1,13 @@
+// Fabian Hüni 21-122-270
+// Eilin Orgland 20-218-566
+
 package ch.unibe.serie03.task03;
 
+/**
+ * Class represents a cargo object with length, width, height and a name.
+ * The sizes had to be bigger than zero, which is checked in the setter methods.
+ * Therefore, we use these methods already in the constructor.
+ */
 public class Cargo {
     private double length;
     private double width;
@@ -7,12 +15,13 @@ public class Cargo {
     private String name;
 
     public Cargo(double length, double width, double height, String name) {
-        this.length = length;
-        this.width = width;
-        this.height = height;
+        setLength(length);
+        setWidth(width);
+        setHeight(height);
         this.name = name;
     }
 
+    /* Getters and Setters ------------------------------------------------------------ */
     public double getLength() {
         return length;
     }
@@ -54,6 +63,10 @@ public class Cargo {
         this.name = name;
     }
 
+    /**
+     * Override the toString methode with own implementation
+     * @return string with all variables
+     */
     @Override
     public String toString() {
         return "Cargo{" +

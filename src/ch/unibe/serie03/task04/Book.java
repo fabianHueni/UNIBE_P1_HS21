@@ -1,4 +1,9 @@
-package ch.unibe.serie03.task04;/* ************************************************************************* *\
+// Fabian Hüni 21-122-270
+// Eilin Orgland 20-218-566
+
+package ch.unibe.serie03.task04;
+
+/* ************************************************************************* *\
 *                Programmierung 1 HS 2020 - Serie 3-1                         * 
 \* ************************************************************************* */
 
@@ -19,6 +24,12 @@ public class Book
 
 	//--- constructors ---
 
+	/**
+	 * @param id id of the book
+	 * @param title title of the book
+	 * @param author author of the book
+	 * @param dateOfPublication date of publication as a string (dd.mm.yyyy)
+	 */
 	public Book(int id, String title, String author, String dateOfPublication) {
 		this.id = id;
 		this.title = title;
@@ -26,8 +37,10 @@ public class Book
 		this.dateOfPublication = stringToDate(dateOfPublication);
 	}
 
-
-	/** Returns the age of the book in days since publication */
+	/**
+	 * Returns the age of the book in days since publication
+	 * @return age
+	 */
 	public int age()
 	{
 		return (int) TimeUnit.MILLISECONDS.toDays(new Date().getTime() - dateOfPublication.getTime());
