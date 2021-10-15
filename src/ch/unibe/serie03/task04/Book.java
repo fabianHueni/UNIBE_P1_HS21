@@ -2,9 +2,11 @@ package ch.unibe.serie03.task04;/* *********************************************
 *                Programmierung 1 HS 2020 - Serie 3-1                         * 
 \* ************************************************************************* */
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 import java.text.*;
+import java.util.concurrent.TimeUnit;
 
 public class Book
 {
@@ -17,36 +19,76 @@ public class Book
 
 	//--- constructors ---
 
-	// TODO: Insert your code here!
+	public Book(int id, String title, String author, String dateOfPublication) {
+		this.id = id;
+		this.title = title;
+		this.author = author;
+		this.dateOfPublication = stringToDate(dateOfPublication);
+	}
 
 
 	/** Returns the age of the book in days since publication */
 	public int age()
 	{
-		// TODO: Insert your code here!
-		return 0; //this is to avoid compiler errors, replace it!
+		return (int) TimeUnit.MILLISECONDS.toDays(new Date().getTime() - dateOfPublication.getTime());
 	}
 
 	/** Returns a String representation of the book */
 	public String toString()
 	{
-		// TODO: Insert your code here!
-		return ""; //this is to avoid compiler errors, replace it!
+		return id + ", " + title + ", " + author + ", " + dateToString(dateOfPublication); //this is to avoid compiler errors, replace it!
 	}
 
 	/** Reads all book data from user input */
 	public void input() 
 	{
 		Scanner scn = new Scanner( System.in );
-		System.out.print( "Please enter id: " );
+		System.out.println( "Please enter id: " );
+		this.id = scn.nextInt();
 
-		// TODO: Insert your code here!
+		System.out.println( "Please enter the title: " );
+		this.title = scn.nextLine();
 
+		System.out.println( "Please enter the author: " );
+		this.author = scn.nextLine();
+
+		System.out.println( "Please enter the date of publication: " );
+		this.dateOfPublication = stringToDate(scn.nextLine());
 	}
 
 	//--- Get-/Set-methods ---
 
-	// TODO: Insert your code here!
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public Date getDateOfPublication() {
+		return dateOfPublication;
+	}
+
+	public void setDateOfPublication(Date dateOfPublication) {
+		this.dateOfPublication = dateOfPublication;
+	}
 
 	//--- helper methods -- DO NOT CHANGE ------------------------------------
 	/** Converts the Date object d into a String object */
