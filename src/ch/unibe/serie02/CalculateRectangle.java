@@ -17,7 +17,8 @@ public class CalculateRectangle {
         System.out.println("Geben Sie die breite ein:");
         width= scanner.nextDouble();
 
-        System.out.println("Das Rechteck hat eine Fläche von " + (length * width)
+        System.out.println("Das Rechteck hat eine Fläche von "
+                + (length * width)
                 + " und einen Umfang von " + (2 * length + 2 * width));
 
         if  (length == width)

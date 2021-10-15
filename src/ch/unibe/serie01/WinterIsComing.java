@@ -3,6 +3,8 @@
 
 package ch.unibe.serie01;
 
+import java.text.DecimalFormat;
+
 public class WinterIsComing {
 
     public static void main(String[] args) {
@@ -13,5 +15,13 @@ public class WinterIsComing {
         System.out.println("Winter");
         System.out.println("is ");
         System.out.println("coming");
+
+        DecimalFormat fmt = new DecimalFormat("000.0##");
+        System.out.println(fmt.format(3));
+        System.out.println(fmt.format(13.20));
+        System.out.println(fmt.format(2134.201));
+        System.out.println(fmt.format(0.1346));
+
+
     }
 }

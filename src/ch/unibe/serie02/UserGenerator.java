@@ -30,7 +30,7 @@ public class UserGenerator {
 
         System.out.println("Ihr Benutzername lautet: " + userName);
 
-        // generate random password ------------------------------------------
+        // generate random password -------------------------------------------
         password += random.nextInt(2) + 7;
 
         decimalFormat.applyPattern(FORMAT_PASSWORD);

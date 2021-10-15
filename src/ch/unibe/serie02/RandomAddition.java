@@ -18,7 +18,8 @@ public class RandomAddition {
         summand1 = random.nextInt(20);
         summand2 = random.nextInt(MAX_RESULT - summand1);
 
-        System.out.println("Berechnen Sie die folgende Addition: " + summand1 + " + " + summand2);
+        System.out.println("Berechnen Sie die folgende Addition: "
+                + summand1 + " + " + summand2);
         result = scanner.nextInt();
 
         if (result == summand1 + summand2)
