@@ -7,10 +7,10 @@ package ch.unibe.serie03.task04;
 *                Programmierung 1 HS 2020 - Serie 3-1                         * 
 \* ************************************************************************* */
 
-import java.util.Calendar;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
-import java.text.*;
 import java.util.concurrent.TimeUnit;
 
 public class Book
@@ -49,15 +49,21 @@ public class Book
 	/** Returns a String representation of the book */
 	public String toString()
 	{
-		return id + ", " + title + ", " + author + ", " + dateToString(dateOfPublication); //this is to avoid compiler errors, replace it!
+		return id + ", " + title + ", " + author + ", " + dateToString(dateOfPublication);
 	}
 
 	/** Reads all book data from user input */
 	public void input() 
 	{
 		Scanner scn = new Scanner( System.in );
+
 		System.out.println( "Please enter id: " );
-		this.id = scn.nextInt();
+		// we  need to read with nextLine() instead of nextInt() because enter is a character
+		// and get read by the next nextLine() statement.
+		try {
+			this.id = Integer.parseInt(scn.nextLine());
+		} catch (Exception ignored) {
+		}
 
 		System.out.println( "Please enter the title: " );
 		this.title = scn.nextLine();

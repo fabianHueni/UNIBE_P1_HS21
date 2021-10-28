@@ -37,6 +37,10 @@ public class Cargo {
         return width;
     }
 
+    /**
+     * Set width if width is greater than 0
+     * @param width
+     */
     public void setWidth(double width) {
         if (width > 0)
             this.width = width;
@@ -48,6 +52,10 @@ public class Cargo {
         return height;
     }
 
+    /**
+     * Set height if height is a number greater than 0
+     * @param height
+     */
     public void setHeight(double height) {
         if (height > 0)
             this.height = height;

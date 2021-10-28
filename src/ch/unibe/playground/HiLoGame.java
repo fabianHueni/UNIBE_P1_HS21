@@ -14,7 +14,6 @@ public class HiLoGame {
         String playAgain;
         int numberOfGuesses = 1;
 
-
         do {
             randomNumber = random.nextInt(MAX_NUMBER - 1) + 1;
             while (nextGuess()) {

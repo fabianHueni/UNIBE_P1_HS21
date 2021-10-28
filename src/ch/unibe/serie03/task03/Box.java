@@ -55,7 +55,7 @@ public class Box {
                 ", width=" + width +
                 ", height=" + height +
                 ", full=" + full +
-                ", cargo=" + cargo +
+                ", cargo=" + (cargo != null? cargo.toString() : null) +
                 '}';
     }
 }
