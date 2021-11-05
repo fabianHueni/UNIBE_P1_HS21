@@ -1,8 +1,11 @@
+// Fabian Hüni 21-122-270
+// Eilin Orgland 20-218-566
+
 package ch.unibe.serie04.task02;
 
 /**
  * represents a pair of dices with methods for
- *  - set the points of one of the dice
+ *  - set the points for each of the dices
  *  - roll both dices
  *  - get the sum of both dices
  */
@@ -10,7 +13,6 @@ public class PairOfDice {
 
     Dice dice1 = new Dice();
     Dice dice2 = new Dice();
-
 
     /**
      * Set the points of dice 1
@@ -28,6 +30,19 @@ public class PairOfDice {
         this.dice2.setPoints(points);
     }
 
+    /**
+     * Get the points of dice 1
+     */
+    public int getPointsOfDice1() {
+        return this.dice1.getPoints();
+    }
+
+    /**
+     * Get the points of dice 2
+     */
+    public int getPointsOfDice2() {
+        return this.dice2.getPoints();
+    }
 
     /**
      * roll both dices

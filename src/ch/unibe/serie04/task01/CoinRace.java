@@ -1,5 +1,12 @@
+// Fabian Hüni 21-122-270
+// Eilin Orgland 20-218-566
+
 package ch.unibe.serie04.task01;
 
+/**
+ * Simulates a coin race. The winner is the coin, which is three times in a row on the head side.
+ * Prints out the result of each round as well as the end result.
+ */
 public class CoinRace {
 
     public static void main(String[] args) {
@@ -23,7 +30,7 @@ public class CoinRace {
             System.out.println("Wir haben ein Unentschieden!!");
         else if (counterHead1 == 3)
             System.out.println("Münze 1 hat gewonnen!");
-        else if (counterHead2 == 3)
+        else
             System.out.println("Münze 2 hat gewonnen!");
     }
 }

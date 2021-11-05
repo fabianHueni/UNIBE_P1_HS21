@@ -1,3 +1,6 @@
+// Fabian Hüni 21-122-270
+// Eilin Orgland 20-218-566
+
 package ch.unibe.serie04.task02;
 
 import java.util.Random;

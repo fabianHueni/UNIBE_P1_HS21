@@ -5,6 +5,9 @@ package ch.unibe.serie04.task01;
 
 import java.util.Random;
 
+/**
+ * This class represents a coin. The coin can get flipped and return if his acitve side is head or not.
+ */
 public class Coin {
     private boolean isHead;
     private Random random = new Random();
@@ -20,7 +23,6 @@ public class Coin {
         this.isHead = random.nextBoolean();
     }
 
-
     /**
      * Check if two coins do have the same value
      *
@@ -31,6 +33,10 @@ public class Coin {
         return this.isHead == coin2.isHead();
     }
 
+    /**
+     * Returns "Kopf" or "Zahl" according to his active side.
+     * @return
+     */
     @Override
     public String toString() {
         return (this.isHead) ? "Kopf": "Zahl";
