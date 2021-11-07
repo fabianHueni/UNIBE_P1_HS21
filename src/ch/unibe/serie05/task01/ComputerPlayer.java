@@ -1,3 +1,6 @@
+// Fabian Hüni 21-122-270
+// Eilin Orgland 20-218-566
+
 package ch.unibe.serie05.task01;
 /* ************************************************************************* *\
 *                Programmierung 1 HS 2020 - Serie 5-1                         * 

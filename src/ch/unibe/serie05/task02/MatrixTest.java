@@ -1,5 +1,11 @@
+// Fabian Hüni 21-122-270
+// Eilin Orgland 20-218-566
+
 package ch.unibe.serie05.task02;
 
+/**
+ * represents a test class for the MatrixOperations class.
+ */
 public class MatrixTest {
 
     public static String[] testFiles = {"matrix-a", "matrix-b","matrix-c", "matrix-d","matrix-e", "matrix-notFound",};
