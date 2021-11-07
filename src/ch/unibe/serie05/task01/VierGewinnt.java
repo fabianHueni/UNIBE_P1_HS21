@@ -100,8 +100,8 @@ public class VierGewinnt
 	private boolean isBoardFull()
 	{
 		for (Token[] column: board) {
-			for (int i = 0; i < column.length; i++) {
-				if(column[i] == Token.empty) {
+			for (Token token : column) {
+				if (token == Token.empty) {
 					return false;
 				}
 			}
@@ -120,12 +120,12 @@ public class VierGewinnt
 		Token tokenToCheck = this.board[col][row];
 
 		// check variable for up, down, left and right
-		boolean fourInColRight = true, fourInColLeft = true, fourInRowRight = true, fourInRowLeft = true;
+		boolean fourInColDown = true, fourInColLeft = true, fourInRowRight = true, fourInRowLeft = true;
 
 		// check variable for diagonal directions
 		boolean diagonalUpLeft = true, diagonalUpRight = true, diagonalDownLeft = true, diagonalDownRight = true;
 
-		/** check up, down, right and left
+		/* check up, down, right and left
 		 * first we check that the index is not outside the array.
 		 * then we check if till that field all previous fields were true
 		 * now we check if the actual field is equals to the comparison field
@@ -133,7 +133,7 @@ public class VierGewinnt
 		for (int i = 1; i < 4; i++) {
 
 			// check up, down, right and left
-			fourInColRight = ((col + i) < board.length && fourInColRight && tokenToCheck == this.board[col + i][row] );
+			fourInColDown = ((col + i) < board.length && fourInColDown && tokenToCheck == this.board[col + i][row] );
 			fourInColLeft = ((col - i) >= 0 && fourInColLeft && tokenToCheck == this.board[col - i][row]);
 			fourInRowRight = ((row + i) < board[col].length  && fourInRowRight && tokenToCheck == this.board[col][row + i]);
 			fourInRowLeft = ((row - i) >= 0 && tokenToCheck == this.board[col][row - i] && fourInRowLeft);
@@ -149,7 +149,7 @@ public class VierGewinnt
 					&& tokenToCheck == this.board[col + i][row + i] );
 		}
 
-		return fourInColRight || fourInColLeft || fourInRowLeft || fourInRowRight
+		return fourInColDown || fourInColLeft || fourInRowLeft || fourInRowRight
 				|| diagonalDownLeft || diagonalDownRight || diagonalUpLeft || diagonalUpRight;
 	}
 
@@ -194,7 +194,7 @@ public class VierGewinnt
 
 
 	/** main method, starts the program */
-	public static void main( String args[] )
+	public static void main(String[] args)
 	{
 		VierGewinnt game = new VierGewinnt();
 		game.play();
