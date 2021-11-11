@@ -35,6 +35,7 @@ public class MatrixOperations {
         while (scanner.hasNextLine()) {
             matrixLines.add(scanner.nextLine());
         }
+        scanner.close();
 
         // iterate over all matrixLines
         for (int i = 0; i < matrixLines.size(); i++) {

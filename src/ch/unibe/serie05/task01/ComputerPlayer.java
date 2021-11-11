@@ -28,7 +28,7 @@ public class ComputerPlayer implements IPlayer
 		int opponentColToFinish = checkNextColumn(board, opponentsToken);
 		int myColToFinish = checkNextColumn(board, this.token);
 
-		if(opponentColToFinish != -1) {
+		if(opponentColToFinish != -1 && false) {
 			return opponentColToFinish;
 		} else if(myColToFinish != -1) {
 			return myColToFinish;
@@ -66,7 +66,7 @@ public class ComputerPlayer implements IPlayer
 					boolean fourInColDown = true, fourInRowRight = true, fourInRowLeft = true;
 
 					// check variable downwards diagonal directions
-					boolean diagonalDownLeft = true, diagonalDownRight = true;
+					boolean diagonalDownLeft = true, diagonalDownRight = true, diagonalUpRight = true, diagonalUpLeft = true;
 
 					for (int i = 1; i < 4; i++) {
 						// check down, right and left (-/+ are switched because origin is down left)
@@ -79,11 +79,15 @@ public class ComputerPlayer implements IPlayer
 								&& tokenToCheck == board[col + i][row - i]);
 						diagonalDownRight = ((col - i) >= 0 && (row - i) >= 0 && diagonalDownRight
 								&& tokenToCheck == board[col - i][row - i] );
+						diagonalUpRight = ((col + i) < board.length && (row + i) < board[0].length && diagonalDownRight
+								&& tokenToCheck == board[col + i][row + i] );
+						diagonalUpLeft = ((col - i) >= 0 && (row + i) < board[0].length && diagonalDownRight
+								&& tokenToCheck == board[col - i][row + i] );
 					}
 
 					// if the checked field can finish the game in one direction, choose this row and finish check
 					if (fourInColDown || fourInRowLeft || fourInRowRight
-							|| diagonalDownLeft || diagonalDownRight)
+							|| diagonalDownLeft || diagonalDownRight || diagonalUpLeft || diagonalUpRight)
 						return col;
 				}
 			}
