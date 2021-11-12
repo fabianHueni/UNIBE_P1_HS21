@@ -13,10 +13,10 @@ public class ComputerPlayer implements IPlayer
 	private Token token;
 
 	/**
-	 * Strategy is to chose a random column and select 
+	 * Strategy is to choose a random column and select
 	 * the next valid column to the right (the chosen included)
 	 *
-	 * Extended (more intelligent, but not enough intelligent at all):
+	 * Extended (more intelligent, but not intelligent at all):
 	 * We perform the following operations in the given order and priority:
 	 *  - check if there is a col with which the opponent will finish the game. If yes, then choose this one.
 	 *  - check if there is a col with which the computer can finish the game. If yes, choose this col.
@@ -28,7 +28,7 @@ public class ComputerPlayer implements IPlayer
 		int opponentColToFinish = checkNextColumn(board, opponentsToken);
 		int myColToFinish = checkNextColumn(board, this.token);
 
-		if(opponentColToFinish != -1 && false) {
+		if(opponentColToFinish != -1) {
 			return opponentColToFinish;
 		} else if(myColToFinish != -1) {
 			return myColToFinish;

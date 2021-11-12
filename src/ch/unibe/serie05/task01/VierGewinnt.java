@@ -114,55 +114,57 @@ public class VierGewinnt
 
 
 	/**
-	 * Checks for at least four equal tokens in a row in
+	 * Checks for at least four equal tokens next to each other in
 	 * either direction, starting from the given position.
+	 *
+	 * we do following to check vertical, horizontal and diagonal directions.
+	 * we start with -3 and end up on 3. if in this interval are more than
+	 * three same tokens next to each other one the game is won.
+	 * if there is already one check variable ge than 4, then wo don't need to continue.
 	 */
 	private boolean checkVierGewinnt( int col, int row )
 	{
-		// value of the field to check from
+		// token of the field to check from
 		Token tokenToCheck = this.board[col][row];
 
 		// check variable for vertical, horizontal and diagonal directions
+		// we will increment them, if next to the tested field is another field with the same token
 		int fourInCol = 0, fourInRow = 0, diagonalLeftRight = 0, diagonalRightLeft = 0;
 
-		/* check up and down as well as right and left
-		 * only check if there aren't already 4 in a row/col/diagonal ( < 4)
-		 * then we check that the index is not outside the array.
-		 * now we check if the actual field is equals to the comparison field
+		/* for each direction we do:
+		 *   - check that the index is not outside the array.
+		 *   - check if the actual field is equals to the comparison field
+		 *   - if true, then increment the corresponding check variable
+		 *   - if false, the reset the corresponding check variable to zero
 		 */
-		for (int i = -3; i < 4; i++) {
+		for (int i = -3;
+			 i < 4 && fourInCol < 4 && fourInRow < 4 && diagonalLeftRight < 4 && diagonalRightLeft < 4;
+			 i++) {
 
 			// check up and down directions
-			if (fourInCol < 4) {
-				fourInCol = ((row + i) < board[col].length && (row + i) >= 0
-						&& tokenToCheck == this.board[col][row + i])
-						? ++fourInCol: 0;
-			}
+			fourInCol = ((row + i) < board[col].length && (row + i) >= 0
+					&& tokenToCheck == this.board[col][row + i])
+					? ++fourInCol: 0;
 
 			// check right and left directions
-			if (fourInRow < 4) {
-				fourInRow = ((col + i) < board.length && (col + i) >= 0
-						&& tokenToCheck == this.board[col + i][row])
-						? ++fourInRow: 0;
-			}
+			fourInRow = ((col + i) < board.length && (col + i) >= 0
+					&& tokenToCheck == this.board[col + i][row])
+					? ++fourInRow: 0;
 
 			// checks the diagonal directions from down left to right up
-			if (diagonalLeftRight < 4) {
-				diagonalLeftRight = ((col + i) >= 0 && (row + i) >= 0
-						&& (col + i) < board.length && (row + i) < board[col].length
-						&& tokenToCheck == this.board[col + i][row + i])
-						? ++diagonalLeftRight: 0;
-			}
+			diagonalLeftRight = ((col + i) >= 0 && (row + i) >= 0
+					&& (col + i) < board.length && (row + i) < board[col].length
+					&& tokenToCheck == this.board[col + i][row + i])
+					? ++diagonalLeftRight: 0;
 
 			// checks the diagonal directions from down right to left up
-			if (diagonalRightLeft < 4) {
-				diagonalRightLeft = ((col - i) >= 0 && (row + i) >= 0
-						&& (col - i) < board.length && (row + i) < board[col].length
-						&& tokenToCheck == this.board[col - i][row + i])
-						? ++diagonalRightLeft: 0;
-			}
+			diagonalRightLeft = ((col - i) >= 0 && (row + i) >= 0
+					&& (col - i) < board.length && (row + i) < board[col].length
+					&& tokenToCheck == this.board[col - i][row + i])
+					? ++diagonalRightLeft: 0;
 		}
 
+		// if one of the tested direction has four next to each other, then the game is won.
 		return fourInCol == 4|| fourInRow == 4
 				|| diagonalRightLeft == 4 || diagonalLeftRight == 4;
 	}
