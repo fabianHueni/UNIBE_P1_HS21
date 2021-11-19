@@ -1,14 +1,15 @@
 package ch.unibe.serie06.task02;
 
+/**
+ * represents a DVD object with given attributes. Implements the iArticle interface
+ */
 public class DVD implements IArticle {
     private int id;
     private String title;
     private int year;
-    private int price; // CHF
+    private int price;
 
-    /** constructor */
-    public DVD( int id, String title, int year, int price )
-    {
+    public DVD( int id, String title, int year, int price ) {
         this.id = id;
         this.title = title;
         this.year = year;
@@ -16,16 +17,17 @@ public class DVD implements IArticle {
     }
     @Override
     public int getId() {
-        return 0;
+        return id;
     }
 
     @Override
     public int getPrice() {
-        return 0;
+        return price;
     }
 
     @Override
     public String getDescription() {
-        return null;
+        return id + " (DVD) " + title +
+                ", " + year + ", " + price + " CHF";
     }
 }

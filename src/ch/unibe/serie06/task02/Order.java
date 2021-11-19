@@ -2,6 +2,9 @@ package ch.unibe.serie06.task02;
 
 import java.util.ArrayList;
 
+/**
+ * represents an order with a customer and multiple products
+ */
 public class Order {
 
     public static int idCounter = 0;
@@ -11,17 +14,39 @@ public class Order {
     private String customerAddress;
     private ArrayList<IArticle> articles = new ArrayList<>();
 
+    /**
+     * constructor with incrementing number as id
+     */
     public Order() {
         id = Order.idCounter ++;
-
     }
 
-    public ArrayList<IArticle> getArticles() {
-        return articles;
+    /**
+     * calculates the total price from the ordered articles
+     *
+     * @return total price of this order
+     */
+    public int getTotalPrice() {
+        int total = 0;
+        for (IArticle article : articles) {
+            total += article.getPrice();
+        }
+        return total;
     }
 
-    public void addArticles(ArrayList<IArticle> articles) {
-        this.articles = articles;
+    /**
+     * @return iterable articles of this order
+     */
+    public Iterable<IArticle> getOrderedArticles() {
+        return this.articles;
+    }
+
+    /**
+     * adds an article to this order
+     * @param article
+     */
+    public void add(IArticle article) {
+        this.articles.add(article);
     }
 
     public void setCustomerName(String customerName) {
@@ -44,10 +69,6 @@ public class Order {
         return customerAddress;
     }
 
-    public void add(IArticle article) {
-        this.articles.add(article);
-    }
-
     @Override
     public String toString() {
         return "Order{" +
@@ -56,17 +77,5 @@ public class Order {
                 ", customerAddress='" + customerAddress + '\'' +
                 ", books=" + articles.toString() +
                 '}';
-    }
-
-    public int getTotalPrice() {
-        int total = 0;
-        for (IArticle article : articles) {
-            total += article.getPrice();
-        }
-        return total;
-    }
-
-    public Iterable<IArticle> getOrderedArticles() {
-        return this.articles;
     }
 }
