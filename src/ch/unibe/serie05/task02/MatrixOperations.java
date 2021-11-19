@@ -31,7 +31,6 @@ public class MatrixOperations {
         ArrayList<String> matrixLines = new ArrayList<>();
         int[][] matrix = null;
 
-
         // read all lines from input into an array list to get the size of the array
         while (scanner.hasNextLine()) {
             matrixLines.add(scanner.nextLine());

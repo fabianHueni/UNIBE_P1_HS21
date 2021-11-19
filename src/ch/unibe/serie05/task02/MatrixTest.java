@@ -18,7 +18,6 @@ public class MatrixTest {
         System.out.println("-------- Testcase for the matrix product method " +
                 "------------------------------------------");
         testMatrixProduct();
-
     }
 
     /**
@@ -65,6 +64,5 @@ public class MatrixTest {
         } catch (Exception e) {
             System.out.println(e);
         }
-
     }
 }
