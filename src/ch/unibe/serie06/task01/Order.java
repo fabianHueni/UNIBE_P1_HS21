@@ -54,8 +54,7 @@ public class Order {
         String stringRepresentation = "Order id: " + id +
                 " Customer: " + customerName + ", " + customerAddress + '\n';
 
-        for (Book book :
-                this.books) {
+        for (Book book : this.books) {
             stringRepresentation += book.toString() + "\n";
         }
 
